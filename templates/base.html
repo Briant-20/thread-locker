@@ -33,7 +33,21 @@
   </head>
   <body>
     <header class="container-fluid fixed-top"></header>
-
+    {% if user.is_authenticated %}
+        <nav>
+            <a href="{% url 'account_logout' %}">Account</a>
+        </nav>
+        {% else %}
+        <nav>
+            <a href="{% url 'account_login' %}">Account</a>
+        </nav>
+        {% endif %}
+        <nav>
+            <a href="{% url 'Wishlist' %}">Wishlist</a>
+        </nav>
+        <nav>
+            <a href="{% url 'ShoppingBag' %}">Shopping Bag</a>
+        </nav>
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}
